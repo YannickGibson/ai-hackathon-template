@@ -1,0 +1,79 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Backend for serving the PyTorch model."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.135.1",
+    "numpy>=2.4.3",
+    "pillow>=12.1.1",
+    "torch",
+    "torchvision",
+    "torchaudio",
+    "research",
+]
+
+[project.optional-dependencies]
+lint = [
+    "ruff>=0.15.6",
+]
+
+
+# UV
+[tool.uv.workspace]
+members = [
+    "research",
+]
+[tool.uv.sources]
+# Backend models will run on CPU
+torch = [
+  { index = "pytorch-cpu" },
+]
+torchvision = [
+  { index = "pytorch-cpu" },
+]
+torchaudio = [
+  { index = "pytorch-cpu" },
+]
+research = { workspace = true }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+
+# Backwards compatibility with pip
+[tool.setuptools.packages.find]
+include = ["app*", "research*"]
+
+
+# Ruff
+# Run ruff format and ruff check --fix to quickly put the code in a better state.
+[tool.ruff]
+line-length = 150
+extend-exclude = ["research"]
+
+[tool.ruff.lint]
+extend-select = [
+  "ALL",
+  "F",        # Pyflakes rules
+  "W",        # PyCodeStyle warnings
+  "E",        # PyCodeStyle errors
+  "I",        # Sort imports properly
+  "UP",       # Warn if certain things can changed due to newer Python versions
+  "C4",       # Catch incorrect use of comprehensions, dict, list, etc
+  "FA",       # Enforce from __future__ import annotations
+  "ISC",      # Good use of string concatenation
+  "ICN",      # Use common import conventions
+  "RET",      # Good return practices
+  "TID",      # Some good import practices
+  "TC",       # Enforce importing certain types in a TYPE_CHECKING block
+  "TD",       # Be diligent with TODO comments
+  "NPY",      # Some numpy-specific things
+]
+extend-ignore = ["D203", "D213", "COM812"]
+
+[tool.ruff.lint.pylint]
+max-args = 10
