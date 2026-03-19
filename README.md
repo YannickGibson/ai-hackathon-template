@@ -113,6 +113,18 @@ The example model is a CNN that compares pairs of MNIST digits (direct + indirec
 | ML | PyTorch, TorchVision, npfl138 |
 | Deployment | Vercel (frontend), Fly.io (backend via Docker) |
 
+## Screenshots
+
+### Landing Page
+
+<img width="1920" height="994" alt="hero" src="https://github.com/user-attachments/assets/b563daa0-01ad-4aa5-ad17-21d90dc5d76d" />
+
+### Model Interface
+
+<img width="1920" height="999" alt="demo" src="https://github.com/user-attachments/assets/6d61c604-633a-4377-a223-a5ee83ffb892" />
+
+
+
 ## License
 
 MIT
