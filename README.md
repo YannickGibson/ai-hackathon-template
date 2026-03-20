@@ -6,18 +6,18 @@ A ready-made, full-stack template for hackathons involving AI/ML models with a w
 
 ```
 .
-├── frontend/          # React + Vite + Tailwind + shadcn/ui
+├── frontend/                 # React + Vite + Tailwind + shadcn/ui
 │   └── src/
 ├── backend/
-│   ├── app/           # FastAPI server & model inference
-│   │   ├── main.py    # API endpoints (predict, analyze, invert, blend)
-│   │   └── weights/   # Trained model weights (.pt)
-│   └── research/      # PyTorch training pipeline
-│       ├── train.py   # Training script
+│   ├── app/                  # FastAPI server & model inference
+│   │   ├── main.py           # API endpoints (predict, analyze, invert, blend)
+│   │   └── weights/          # Trained model weights (.pt)
+│   └── research/             # PyTorch training pipeline
+│       ├── train.py          # Training script
 │       └── research/
-│           ├── models.py    # Model architecture
-│           └── datasets.py  # Dataset loading
-└── Makefile           # Top-level dev commands
+│           ├── models.py     # Model architecture
+│           └── datasets.py   # Dataset loading
+└── Makefile                  # Top-level dev commands
 ```
 
 ## Quick Start
